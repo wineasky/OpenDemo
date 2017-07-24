@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
 import com.example.open.fragment.*;
 
 /**
@@ -20,18 +19,18 @@ public class MainActivity extends AppCompatActivity
     //实现接口用于获取this来判定当前的状态
         implements OnTabSelectListener {
     //定义导航栏的页面索引
-    private static final int TAB_HOME = 0;
-    private static final int TAB_RANK = 1;
-    private static final int TAB_CICLE = 2;
-    private static final int TAB_ALBUM = 3;
-    private static final int TAB_USER = 4;
+    private static final int TAB_F1 = 0;
+    private static final int TAB_F2 = 1;
+    private static final int TAB_F3 = 2;
+    private static final int TAB_F4 = 3;
+    private static final int TAB_F5 = 4;
     //定义FragmentManager以及Fragment的页面
     private FragmentManager mFragmentManager;
-    private Fragment mHomePage;
-    private Fragment mRankPage;
-    private Fragment mCiclePage;
-    private Fragment mAlbumPage;
-    private Fragment mUserPage;
+    private Fragment mFragment1;
+    private Fragment mFragment2;
+    private Fragment mFragment3;
+    private Fragment mFragment4;
+    private Fragment mFragment5;
 
     //定义导航栏对象
     private NavigationBar mNavigator;
@@ -57,9 +56,9 @@ public class MainActivity extends AppCompatActivity
         //设置FragmentManager,此处导包对应support.v4
         mFragmentManager = getSupportFragmentManager();
         //通过getFragment()设置mHomepage的Fragment页面
-        mHomePage = getFragment(HomeFragment.class,null);
+        mFragment1 = getFragment(Fragment1.class,null);
         //添加mHomePage的事务
-        addFragment(mHomePage);
+        addFragment(mFragment1);
     }
     //【onCreate】关联Fragment要在activity中显示的位置并提交事务
     private void addFragment(Fragment fragment) {
@@ -83,42 +82,42 @@ public class MainActivity extends AppCompatActivity
         hideAllFragment();
         //根据获取的当前索引进行匹配
         switch (index){
-            case TAB_HOME:
-                showFragment(mHomePage,true); //显示mHomePage
+            case TAB_F1:
+                showFragment(mFragment1,true); //显示mHomePage
                 break;//跳出循环
-            case TAB_RANK:
-                if(null == mRankPage){
+            case TAB_F2:
+                if(null == mFragment2){
                     //若还没有创建mRankPage就通过getFragment获取一个
-                    mRankPage = getFragment(RankFragment.class,null);
+                    mFragment2 = getFragment(Fragment2.class,null);
                     //添加到Fragment
-                    addFragment(mRankPage);
+                    addFragment(mFragment2);
                 }else{
-                    //如果已经有mRankPage，就显示出来
-                    showFragment(mRankPage,true);
+                    //如果已经有mFragment2，就显示出来
+                    showFragment(mFragment2,true);
                 }
                 break;
-            case TAB_CICLE://同上
-                if(null == mCiclePage){
-                    mCiclePage = getFragment(AlbumFragment.class,null);
-                    addFragment(mCiclePage);
+            case TAB_F3://同上
+                if(null == mFragment3){
+                    mFragment3 = getFragment(Fragment3.class,null);
+                    addFragment(mFragment3);
                 }else{
-                    showFragment(mCiclePage,true);
+                    showFragment(mFragment3,true);
                 }
                 break;
-            case TAB_ALBUM:
-                if(null == mAlbumPage){
-                    mAlbumPage = getFragment(PhotoFragment.class,null);
-                    addFragment(mAlbumPage);
+            case TAB_F4:
+                if(null == mFragment4){
+                    mFragment4 = getFragment(Fragment4.class,null);
+                    addFragment(mFragment4);
                 }else{
-                    showFragment(mAlbumPage,true);
+                    showFragment(mFragment4,true);
                 }
                 break;
-            case TAB_USER:
-                if(null == mUserPage){
-                    mUserPage = getFragment(UserFragment.class,null);
-                    addFragment(mUserPage);
+            case TAB_F5:
+                if(null == mFragment5){
+                    mFragment5 = getFragment(Fragment5.class,null);
+                    addFragment(mFragment5);
                 }else{
-                    showFragment(mUserPage,true);
+                    showFragment(mFragment5,true);
                 }
                 break;
         }
@@ -128,16 +127,16 @@ public class MainActivity extends AppCompatActivity
     //【onTabSelected】默认不显示所有Fragment
     private void hideAllFragment() {
         //Fragment不为空的时候 ,默认值false，通过showFragment进行判断，隐藏一个fragment
-        if(null!=mHomePage)
-            showFragment(mHomePage,false);
-        if(null!=mAlbumPage)
-            showFragment(mAlbumPage,false);
-        if(null!=mRankPage)
-            showFragment(mRankPage,false);
-        if(null!=mCiclePage)
-            showFragment(mCiclePage,false);
-        if(null!=mUserPage)
-            showFragment(mUserPage,false);
+        if(null!=mFragment1)
+            showFragment(mFragment1,false);
+        if(null!=mFragment4)
+            showFragment(mFragment4,false);
+        if(null!=mFragment2)
+            showFragment(mFragment2,false);
+        if(null!=mFragment3)
+            showFragment(mFragment3,false);
+        if(null!= mFragment5)
+            showFragment(mFragment5,false);
     }
     //【onTabSelected】选择要显示的Fragment,
     private void showFragment(Fragment fragment, boolean show) {
