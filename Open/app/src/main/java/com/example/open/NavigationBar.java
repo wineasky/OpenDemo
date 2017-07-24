@@ -4,11 +4,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TabHost;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -54,11 +52,11 @@ public class NavigationBar extends LinearLayout implements View.OnClickListener{
     //【NavigationBar(c,a,d)】
     private void init(){
         //图标资源 未选中的是灰色
-        int[] icons = {R.drawable.ic_tab_home,
-                R.drawable.ic_tab_rank,
-                R.drawable.ic_tab_circle_focus,
-                R.drawable.ic_tab_album,
-                R.drawable.ic_tab_user};
+        int[] icons = {R.drawable.tab_f1,
+                R.drawable.tab_f2,
+                R.drawable.tab_f3,
+                R.drawable.tab_f4,
+                R.drawable.tab_f5};
         //设置背景色
         setBackgroundColor(Color.WHITE);
         //从图标组中获取图标个数
