@@ -13,7 +13,7 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 /**
  * 通过代码动态绘制导航栏
- * 1.继承LineatLayout，实现onClickListener
+ * 1.继承LinearLayout，实现onClickListener
  * 2.定义成员变量：TAB_TAG、IMAGE_TAG、listener→创建OnTabSelectListener接口、current
  * 3.方法：a.构造方法*3
  *         b.构造方法里的方法：init(){getItemView()、selectAt(){ tag()}}
