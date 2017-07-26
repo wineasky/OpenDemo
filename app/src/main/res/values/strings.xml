@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Open</string>
+    <string-array name="user_infos">
+        <item>我的作品</item>
+        <item>我赞过的</item>
+        <item>关注</item>
+        <item>粉丝</item>
+        <item>我的美图</item>
+        <item>我的头衔</item>
+    </string-array>
+
+    <string-array name="home_tabs">
+        <item>关注</item>
+        <item>最新</item>
+        <item>精选</item>
+    </string-array>
+</resources>
